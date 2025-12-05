@@ -5,6 +5,8 @@ import qrcode from "qrcode-terminal"
 const app = express()
 app.use(express.json())
 
+const PORT = process.env.PORT || 3000;
+
 let sock
 
 async function startWhatsApp() {
@@ -82,5 +84,6 @@ app.post("/logout", async (req, res) => {
 })
 
 
-// Inicia servidor Express
-app.listen(3000, () => console.log("🚀 API rodando em http://localhost:3000"))
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+  });
